@@ -11,11 +11,14 @@ const
 //Diese Message wird ausgeprintet
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
+// Your verify token. Should be a random string. TOKEN als umgebrungsvariable abgespeichert
+const VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN; 
+//Accsestoken durch FB generiert
+const ACCESS_TOKEN =process.env.FB_ACCESS_TOKEN; 
+//
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
 
-  // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN; 
   // Parse the query params
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
@@ -38,23 +41,23 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-// Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
  
   let body = req.body;
-  console.log(process.env.FB_VERIFY_TOKEN);
+
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-
     // Iterates over each entry - there may be multiple if batched
-    /*body.entry.forEach(function(entry) {
+    body.entry.forEach(function(entry) {
+      let pageID=entry.id;
+      let timeOfEvent=entry.time;
 
       // Gets the message. entry.messaging is an array, but 
       // will only ever contain one message, so we get index 0
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
-    });*/
-    console.log(body);
+    });
+
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
