@@ -15,8 +15,7 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN;
-  console.log(VERIFY_TOKEN);  
+  let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN; 
   // Parse the query params
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
@@ -43,7 +42,7 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {  
  
   let body = req.body;
-
+  console.log(process.env.FB_VERIFY_TOKEN);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
