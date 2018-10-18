@@ -102,7 +102,7 @@ request({
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
         json: {
-            recipient: {id: sender_id},
+            recipient: {id: 100001410375698},
              messaging_type: "UPDATE",
             message: data,
         }
