@@ -74,13 +74,14 @@ app.post('/webhook', (req, res) => {
 
 
 
+        sendTestAnswer(1228516987273545);
+        res.status(200).send('EVENT_RECEIVED');
 
-    //res.status(200).send('EVENT_RECEIVED');
     });
 
-    // Returns a '200 OK' response to all requests
-    sendTestAnswer(1228516987273545);
     res.status(200).send('EVENT_RECEIVED');
+    // Returns a '200 OK' response to all requests
+    
   } else {
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
