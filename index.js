@@ -67,7 +67,7 @@ app.post('/webhook', (req, res) => {
           var senderid= entry['messaging'][0]['sender']['id'];
           sendTestAnswer(senderid);
       }
-      sendTestAnswer(senderid);
+      //sendTestAnswer(senderid);
      // console.log(entry['messaging'][0]['message']['text']);
      // console.log(entry.changes[0].value);
 
