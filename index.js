@@ -64,7 +64,8 @@ app.post('/webhook', (req, res) => {
      // console.log(entry.changes[0].value);
      
      //Gib sender id aus
-     console.log("senderid: "+ entry['messaging'][0]['sender']);
+     console.log("senderid: \n");
+     console.log(entry['messaging'][0]['sender']);
     });
 
     // Returns a '200 OK' response to all requests
