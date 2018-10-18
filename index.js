@@ -61,12 +61,13 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       //let webhook_event = entry.messaging[0];
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
+      var senderid= entry['messaging'][0]['sender']['id'];
       if(entry['messaging'][0]['message'] && entry['messaging'][0]['text'])
       {
           var senderid= entry['messaging'][0]['sender']['id'];
           sendTestAnswer(senderid);
       }
-          sendTestAnswer(senderid);
+      sendTestAnswer(senderid);
      // console.log(entry['messaging'][0]['message']['text']);
      // console.log(entry.changes[0].value);
 
@@ -109,7 +110,7 @@ function sendTestAnswer(sender_id)
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
         json: {
-            recipient: {id:sendeer_id},
+            recipient: {id:sender_id},
             message: messageData,
         }
     }, function(error, response, body) {
