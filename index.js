@@ -97,7 +97,6 @@ function callSendAPI(sender_psid, response) {
 
 function sendTestAnswer(sender_id)
 {
-    messageC++;
     console.log("about to send \n ");
     var data={
     text: "hello, world!"
