@@ -64,7 +64,7 @@ app.post('/webhook', (req, res) => {
       if(entry['messaging'][0]['message'] && entry['messaging'][0]['text'])
       {
           var senderid= entry['messaging'][0]['sender']['id'];
-          sendTestAnswer(senderid)
+          sendTestAnswer(senderid);
       }
      // console.log(entry['messaging'][0]['message']['text']);
      // console.log(entry.changes[0].value);
