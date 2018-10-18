@@ -103,7 +103,7 @@ function sendTestAnswer(sender_id)
     var data={
     text: "hello, world!"
   };
-request({
+/*request({
         url: 'https://graph.facebook.com/v3.1/me/messages',
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
@@ -118,5 +118,5 @@ request({
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
-})
+})*/
 }
