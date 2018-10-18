@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
      
      //Gib sender id aus
      console.log("senderid: "+entry['messaging'][0]['sender']['id']+ " \n");
-     sendTestAnswer(entry['messaging'][0]['sender']['id']);
+     sendTestAnswer(864272057029821);
     });
 
     // Returns a '200 OK' response to all requests
@@ -103,7 +103,7 @@ request({
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
         json: {
-            recipient: {id: 100001410375698},
+            recipient: {id: sender_id},
              messaging_type: "UPDATE",
             message: data,
         }
