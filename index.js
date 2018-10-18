@@ -116,15 +116,13 @@ function sendTestAnswer(sender_id)
     }, function(error, response, body) {
         if (error) {
             console.log('Error sending messages: ', error)
-            response.status(403).send('EVENT_RECEIVED');
             
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
-            response.status(404).send('EVENT_RECEIVED');
         }
         else
         {
-           response.status(200).send('EVENT_RECEIVED');
+           
         }
 })
 }
