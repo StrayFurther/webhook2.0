@@ -60,6 +60,7 @@ app.post('/webhook', (req, res) => {
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
       
       console.log(entry['messaging'][0]['message']['text']);
+      console.log("senderid: "+ entry['messaging'][0]['sender']);
      // console.log(entry.changes[0].value);
     });
 
@@ -85,4 +86,27 @@ function handlePostback(sender_psid, received_postback) {
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
   
+}
+
+function sendTestAnswer(sender_id)
+{
+    var data={
+    text: "hello, world!"
+  };
+request({
+        url: 'https://graph.facebook.com/v3.1/me/messages',
+        qs: {access_token:ACCESS_TOKEN},
+        method: 'POST',
+        json: {
+            recipient: {id: sender_id},
+             messaging_type: "UPDATE",
+            message: data,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+})
 }
