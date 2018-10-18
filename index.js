@@ -73,7 +73,7 @@ app.post('/webhook', (req, res) => {
 
 
 
-     //sendTestAnswer(entry['messaging'][0]['sender']['id']);
+     sendTestAnswer(entry['messaging'][0]['sender']['id']);
 
     //res.status(200).send('EVENT_RECEIVED');
     });
