@@ -7,6 +7,7 @@ const
   app = express().use(bodyParser.json()),
   request=require('request');
 
+let messageC=0;
 // Sets server port and logs message on success
 //Diese Message wird ausgeprintet
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -65,7 +66,8 @@ app.post('/webhook', (req, res) => {
      
      //Gib sender id aus
      console.log("senderid: "+entry['messaging'][0]['sender']['id']+ " \n");
-     //sendTestAnswer(864272057029821);
+    if(messageC<2) 
+    sendTestAnswer(864272057029821);
     });
 
     // Returns a '200 OK' response to all requests
@@ -94,6 +96,7 @@ function callSendAPI(sender_psid, response) {
 
 function sendTestAnswer(sender_id)
 {
+    messageC++;
     console.log("about to send \n ");
     var data={
     text: "hello, world!"
