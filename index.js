@@ -68,7 +68,7 @@ app.post('/webhook', (req, res) => {
      //Gib sender id aus
      console.log("senderid: "+entry['messaging'][0]['sender']['id']+ " \n");
 
-       // sendTestAnswer(864272057029821);
+     sendTestAnswer(entry['messaging'][0]['sender']['id']);
 
     //res.status(200).send('EVENT_RECEIVED');
     });
