@@ -100,7 +100,7 @@ app.post('/webhook/', function (req, res) {
             sendGenericMessage(sender)
             continue
         }
-        sendTextMessage(1228516987273545, "Message received: " + text.substring(0, 200))
+        sendTextMessage(sender, "Message received: " + text.substring(0, 200))
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
@@ -115,7 +115,7 @@ app.post('/webhook/', function (req, res) {
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
-        url: 'https://graph.facebook.com/v3.1/me/messages',
+        url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
         json: {
