@@ -7,7 +7,7 @@ const
   app = express().use(bodyParser.json()),
   request=require('request');
 
-var messageC=0;
+
 // Sets server port and logs message on success
 //Diese Message wird ausgeprintet
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -66,10 +66,9 @@ app.post('/webhook', (req, res) => {
      
      //Gib sender id aus
      console.log("senderid: "+entry['messaging'][0]['sender']['id']+ " \n");
-    if(messageC<2)
-    {
-        //sendTestAnswer(864272057029821);
-    }
+
+        sendTestAnswer(864272057029821);
+
     });
 
     // Returns a '200 OK' response to all requests
