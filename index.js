@@ -61,12 +61,15 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       //let webhook_event = entry.messaging[0];
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
-      
+      if(entry.messaging[0].message && entry.message[0].text)
+      {
+          var senderid= entry['messaging'][0]['sender']['id'];
+          sendTestAnswer(senderid)
+      }
      // console.log(entry['messaging'][0]['message']['text']);
      // console.log(entry.changes[0].value);
-     
-     //Gib sender id aus
-     console.log("senderid: "+entry['messaging'][0]['sender']['id']+ " \n");
+
+
 
      //sendTestAnswer(entry['messaging'][0]['sender']['id']);
 
@@ -99,18 +102,14 @@ function callSendAPI(sender_psid, response) {
 
 function sendTestAnswer(sender_id)
 {
-    console.log("about to send \n ");
-    var data={
-    text: "hello, world!"
-  };
-/*request({
+     let messageData = { text: "dude!" }
+    request({
         url: 'https://graph.facebook.com/v3.1/me/messages',
         qs: {access_token:ACCESS_TOKEN},
         method: 'POST',
         json: {
-            recipient: {id: sender_id},
-             messaging_type: "UPDATE",
-            message: data,
+            recipient: {id:sendeer_id},
+            message: messageData,
         }
     }, function(error, response, body) {
         if (error) {
@@ -118,5 +117,5 @@ function sendTestAnswer(sender_id)
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
-})*/
+})
 }
