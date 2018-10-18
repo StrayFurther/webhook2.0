@@ -62,6 +62,7 @@ app.post('/webhook', (req, res) => {
       //let webhook_event = entry.messaging[0];
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
       var senderid= entry['messaging'][0]['sender']['id'];
+      console.log("sender id: "+senderid );
       if(entry['messaging'][0]['message'] && entry['messaging'][0]['text'])
       {
           var senderid= entry['messaging'][0]['sender']['id'];
@@ -73,11 +74,11 @@ app.post('/webhook', (req, res) => {
 
 
 
-     sendTestAnswer(entry['messaging'][0]['sender']['id']);
 
     //res.status(200).send('EVENT_RECEIVED');
     });
 
+    // sendTestAnswer(senderid);
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
