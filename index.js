@@ -60,7 +60,7 @@ app.post('/webhook', (req, res) => {
       console.log("time: " + timeOfEvent + "  id: "+pageID);
       
       console.log(entry);
-      console.log(entry.value);
+      console.log(entry['value']);
     });
 
     // Returns a '200 OK' response to all requests
