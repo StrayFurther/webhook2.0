@@ -33,6 +33,7 @@ app.get('/webhook', (req, res) => {
       // Responds with the challenge token from the request
       console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
+      sendTestAnswer()
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
@@ -60,7 +61,6 @@ app.post('/webhook', (req, res) => {
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
       
       console.log(entry['messaging'][0]['message']['text']);
-      console.log("senderid: "+ entry['messaging'][0]['sender']);
      // console.log(entry.changes[0].value);
     });
 
