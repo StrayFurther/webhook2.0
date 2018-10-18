@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
       //let webhook_event = entry.messaging[0];
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
       
-      console.log(entry.messaging[0].read);
+      console.log(entry.messaging.read);
      // console.log(entry.changes[0].value);
     });
 
