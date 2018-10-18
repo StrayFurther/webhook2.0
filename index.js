@@ -60,7 +60,7 @@ app.post('/webhook', (req, res) => {
       //let webhook_event = entry.messaging[0];
       console.log("time: " + timeOfEvent + "  id: "+pageID + " \n");
       
-      console.log(entry['messaging'][0]['message']['text']);
+     // console.log(entry['messaging'][0]['message']['text']);
      // console.log(entry.changes[0].value);
      
      //Gib sender id aus
@@ -94,6 +94,7 @@ function callSendAPI(sender_psid, response) {
 
 function sendTestAnswer(sender_id)
 {
+    console.log("about to send \n ");
     var data={
     text: "hello, world!"
   };
