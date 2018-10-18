@@ -93,7 +93,7 @@ app.post('/webhook/', function (req, res) {
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i];
-      event.sender.id="1228516987273545";
+      event.sender.id="100029278720161";
       let sender = event.sender.id;
       
       console.log("Sender:  "+sender+" type:"+typeof(sender));
