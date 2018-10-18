@@ -53,8 +53,8 @@ app.post('/webhook', (req, res) => {
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
     // Iterates over each entry - there may be multiple if batched
-    res.status(200).send('EVENT_RECEIVED');
     body.entry.forEach(function(entry) {
+        res.status(200).send('EVENT_RECEIVED');
       let pageID=entry.id;
       let timeOfEvent=entry.time;
 
